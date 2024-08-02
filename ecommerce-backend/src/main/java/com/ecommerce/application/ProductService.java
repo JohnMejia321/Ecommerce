@@ -2,7 +2,9 @@ package com.ecommerce.application;
 
 import com.ecommerce.domain.model.Product;
 import com.ecommerce.domain.port.IProductRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProductService {
 
     private final IProductRepository iProductRepository;

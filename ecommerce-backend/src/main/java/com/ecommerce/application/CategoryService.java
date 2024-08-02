@@ -2,7 +2,9 @@ package com.ecommerce.application;
 
 import com.ecommerce.domain.model.Category;
 import com.ecommerce.domain.port.ICategoryRepository;
+import org.springframework.stereotype.Service;
 
+@Service
 public class CategoryService {
     private final ICategoryRepository iCategoryRepository;
 

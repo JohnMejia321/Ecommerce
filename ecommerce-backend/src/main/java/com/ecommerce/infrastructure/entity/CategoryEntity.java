@@ -1,6 +1,5 @@
-package com.ecommerce.infrastructure;
+package com.ecommerce.infrastructure.entity;
 
-import com.ecommerce.domain.model.UserType;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,36 +9,16 @@ import org.hibernate.annotations.UpdateTimestamp;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "categories")
 @Data
 @NoArgsConstructor
-public class UserEntity {
-
+public class CategoryEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-
-    private String username;
-
-    private String firstName;
-
-    private String lastName;
-
-    @Column(unique = true)
-    private String email;
-
-    private String address;
-
-    private String cellphone;
-
-    private String password;
-
-    @Enumerated(EnumType.STRING)
-    private UserType userType;
-
+    private String name;
     @CreationTimestamp
     private LocalDateTime dateCreated;
-
     @UpdateTimestamp
     private LocalDateTime dateUpdated;
 }
