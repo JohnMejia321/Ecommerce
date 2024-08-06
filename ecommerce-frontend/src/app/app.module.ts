@@ -8,6 +8,7 @@ import { HomeComponent } from "./components/home/home.component";
 import { CommonModule } from '@angular/common';
 import { HeaderUserComponent } from './components/header-user/header-user.component';
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
+import { ProductListComponent } from './components/product-list/product-list.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { HeaderAdminComponent } from './components/header-admin/header-admin.com
     AppComponent,
     HeaderUserComponent,
     HeaderAdminComponent,
-    HomeComponent
+    HomeComponent,
+    ProductListComponent
   ],
   imports: [
     BrowserModule,
