@@ -8,8 +8,8 @@ import { CommonModule } from '@angular/common';
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  standalone: true,
-  imports: [CommonModule]
+ // standalone: true,
+  //imports: [CommonModule]
 })
 export class HomeComponent implements OnInit {
 

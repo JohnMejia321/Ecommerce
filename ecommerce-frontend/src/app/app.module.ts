@@ -14,13 +14,13 @@ import { HeaderAdminComponent } from './components/header-admin/header-admin.com
   declarations: [
     AppComponent,
     HeaderUserComponent,
-    HeaderAdminComponent
+    HeaderAdminComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    HomeComponent,
     CommonModule
 ],
   providers: [],
