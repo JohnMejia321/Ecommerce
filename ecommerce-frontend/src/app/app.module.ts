@@ -10,6 +10,10 @@ import { HeaderUserComponent } from './components/header-user/header-user.compon
 import { HeaderAdminComponent } from './components/header-admin/header-admin.component';
 import { ProductListComponent } from './components/product-list/product-list.component';
 import { Routes, RouterModule } from '@angular/router';
+import { ProductAddComponent } from './components/product-add/product-add.component';
+import {BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -17,6 +21,7 @@ import { Routes, RouterModule } from '@angular/router';
 const routes : Routes = [
   {path:'', component:HomeComponent},
   {path:'admin/product', component: ProductListComponent},
+  {path:'admin/product/addproduct', component: ProductAddComponent}
 
 ];
 
@@ -28,7 +33,8 @@ const routes : Routes = [
     HeaderUserComponent,
     HeaderAdminComponent,
     HomeComponent,
-    ProductListComponent
+    ProductListComponent,
+    ProductAddComponent
   ],
   imports: [
     BrowserModule,
@@ -36,6 +42,10 @@ const routes : Routes = [
     HttpClientModule,
     CommonModule,
     RouterModule.forRoot(routes),
+    BrowserAnimationsModule,
+    ToastrModule.forRoot(),
+    FormsModule,
+
 
 ],
   providers: [],

@@ -1,9 +1,6 @@
 package com.ecommerce.infrastructure.config;
 
-import com.ecommerce.application.CategoryService;
-import com.ecommerce.application.OrderService;
-import com.ecommerce.application.ProductService;
-import com.ecommerce.application.UserService;
+import com.ecommerce.application.*;
 import com.ecommerce.domain.port.ICategoryRepository;
 import com.ecommerce.domain.port.IOrderRepository;
 import com.ecommerce.domain.port.IProductRepository;
@@ -24,8 +21,8 @@ public class BeanConfiguration {
     }
 
     @Bean
-    public ProductService productService(IProductRepository iProductRepository){
-        return  new ProductService(iProductRepository);
+    public ProductService productService(IProductRepository iProductRepository, UploadFile uploadFile){
+        return  new ProductService(iProductRepository, uploadFile);
     }
     @Bean
     public OrderService orderService(IOrderRepository iOrderRepository){
