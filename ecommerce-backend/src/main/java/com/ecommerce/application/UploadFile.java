@@ -10,7 +10,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 
-@Component
 public class UploadFile {
     private final String FOLDER = "src//main//resources//static//images//";
     private final String IMG_DEFAULT = "default.jpg";

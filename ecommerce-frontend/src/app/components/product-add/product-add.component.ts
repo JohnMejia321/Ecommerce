@@ -101,6 +101,7 @@ export class ProductAddComponent implements OnInit {
 
   onFileSelected(event : any){
     this.selectFile = event.target.files[0];
+    console.log('Archivo seleccionado:', this.selectFile);
   }
 
 

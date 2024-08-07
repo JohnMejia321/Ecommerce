@@ -21,24 +21,27 @@ public class ProductService {
     }
 
     public Product save(Product product, MultipartFile multipartFile) throws IOException {
-        if(product.getId()!=0){//cuando es un producto modificado
-            if(multipartFile==null){
-                product.setUrlImage(product.getUrlImage());
-            }else{
-                String nameFile = product.getUrlImage().substring(29);
-               // log.info("este es el nombre de la imagen: {}", nameFile);
-                if (!nameFile.equals("default.jpg")){
-                    uploadFile.delete(nameFile);
+        if (product.getId() != 0) { // cuando es un producto modificado
+            if (multipartFile != null) {
+                String currentUrlImage = product.getUrlImage();
+                if (currentUrlImage != null && currentUrlImage.length() > 29) {
+                    String nameFile = currentUrlImage.substring(29);
+                    if (!nameFile.equals("default.jpg")) {
+                        uploadFile.delete(nameFile);
+                    }
                 }
                 product.setUrlImage(uploadFile.upload(multipartFile));
             }
-        }else{
-            product.setUrlImage(uploadFile.upload(multipartFile));
+        } else {
+            if (multipartFile != null) {
+                product.setUrlImage(uploadFile.upload(multipartFile));
+            } else {
+                product.setUrlImage("default.jpg"); // O cualquier valor predeterminado
+            }
         }
 
         return this.iProductRepository.save(product);
     }
-
 
 
     public Iterable<Product> findAll(){
