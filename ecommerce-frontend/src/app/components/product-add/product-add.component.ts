@@ -39,7 +39,7 @@ export class ProductAddComponent implements OnInit {
 
 
   ngOnInit(): void {
-
+    this.getProductById();
   }
 
 
