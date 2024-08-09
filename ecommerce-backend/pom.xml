@@ -77,6 +77,13 @@
 			<version>${version.mapstruct-lombok}</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+			<version>3.3.2</version>
+		</dependency>
+
+
 	</dependencies>
 
 	<build>
