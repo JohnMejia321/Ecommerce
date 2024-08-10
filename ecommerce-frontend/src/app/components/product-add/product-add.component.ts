@@ -3,6 +3,7 @@ import { Category } from '../../common/category';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from '../../services/category.service';
 
 @Component({
   selector: 'app-product-add',
@@ -31,7 +32,7 @@ export class ProductAddComponent implements OnInit {
     private router:Router, 
     private activatedRoute:ActivatedRoute, 
     private toastr: ToastrService, 
-   // private categoryService:CategoryService,
+    private categoryService:CategoryService
    // private sessionStorage : SessionStorageService
    ){
   }
@@ -40,6 +41,8 @@ export class ProductAddComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProductById();
+    this.getCategories();
+
   }
 
 
@@ -102,6 +105,13 @@ export class ProductAddComponent implements OnInit {
   onFileSelected(event : any){
     this.selectFile = event.target.files[0];
     console.log('Archivo seleccionado:', this.selectFile);
+  }
+
+
+  getCategories(){
+    return this.categoryService.getCategoryList().subscribe(
+      data => this.categories = data
+    );
   }
 
 
