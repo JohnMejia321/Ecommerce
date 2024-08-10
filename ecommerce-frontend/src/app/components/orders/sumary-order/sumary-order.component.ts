@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ItemCart } from '../../../common/item-cart';
 import { OrderProduct } from '../../../common/order-product';
 import { CartService } from '../../../services/cart.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-sumary-order',
@@ -20,7 +21,7 @@ export class SumaryOrderComponent implements OnInit {
   userId : number =0;
 
   constructor(private cartService:CartService, 
-   // private userService:UserService, 
+    private userService:UserService, 
    // private orderService:OrderService, 
    // private paymentService:PaymentService,
    // private sessionStorage:SessionStorageService
@@ -31,6 +32,8 @@ export class SumaryOrderComponent implements OnInit {
     console.log('ngOnInit');
     this.items = this.cartService.convertToListFromMap();
     this.totalCart = this.cartService.totalCart();
+    this.getUserById(1);
+
   }
 
   generateOrder(){
@@ -46,6 +49,18 @@ export class SumaryOrderComponent implements OnInit {
     this.cartService.deleteItemCart(productId);
     this.items = this.cartService.convertToListFromMap();
     this.totalCart = this.cartService.totalCart();
+  }
+
+
+  getUserById(id:number){
+    this.userService.getUserById(id).subscribe(
+      data => {
+        this.firstName = data.firstName;
+        this.lastName = data.lastName;
+        this.email = data.email;
+        this.address = data.address;
+      }
+    );
   }
 
 
