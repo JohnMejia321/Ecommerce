@@ -17,6 +17,7 @@ import { FormsModule } from '@angular/forms';
 import { CategoryListComponent } from './components/category/category-list/category-list.component';
 import { CategoryAddComponent } from './components/category/category-add/category-add.component';
 import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
+import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
 
 
 
@@ -30,6 +31,8 @@ const routes : Routes = [
   {path: 'admin/category/add', component:CategoryAddComponent},
   {path: 'admin/category/update/:id', component:CategoryAddComponent},
   {path: 'cart/detailproduct/:id', component:DetailProductComponent},
+  {path: 'cart/sumary', component: SumaryOrderComponent},
+
 
 ];
 
@@ -45,7 +48,8 @@ const routes : Routes = [
     ProductAddComponent,
     CategoryListComponent,
     CategoryAddComponent,
-    DetailProductComponent
+    DetailProductComponent,
+    SumaryOrderComponent
   ],
   imports: [
     BrowserModule,
