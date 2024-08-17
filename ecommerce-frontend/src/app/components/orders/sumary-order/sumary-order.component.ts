@@ -3,6 +3,9 @@ import { ItemCart } from '../../../common/item-cart';
 import { OrderProduct } from '../../../common/order-product';
 import { CartService } from '../../../services/cart.service';
 import { UserService } from '../../../services/user.service';
+import { Order } from '../../../common/order';
+import { OrderService } from '../../../services/order.service';
+import { OrderState } from '../../../common/order-state';
 
 @Component({
   selector: 'app-sumary-order',
@@ -18,11 +21,11 @@ export class SumaryOrderComponent implements OnInit {
   email : string = '';
   address : string ='';
   orderProducts:OrderProduct [] = [];
-  userId : number =0;
+  userId : number =1;
 
   constructor(private cartService:CartService, 
     private userService:UserService, 
-   // private orderService:OrderService, 
+    private orderService:OrderService, 
    // private paymentService:PaymentService,
    // private sessionStorage:SessionStorageService
     ){}
@@ -32,7 +35,7 @@ export class SumaryOrderComponent implements OnInit {
     console.log('ngOnInit');
     this.items = this.cartService.convertToListFromMap();
     this.totalCart = this.cartService.totalCart();
-    this.getUserById(1);
+    this.getUserById(this.userId);
 
   }
 
@@ -43,6 +46,13 @@ export class SumaryOrderComponent implements OnInit {
         this.orderProducts.push(orderProduct);
       }
     );
+    let order = new Order(null, new Date(), this.orderProducts, this.userId, OrderState.CANCELLED);
+    console.log('Order: '+ order.orderState);
+    this.orderService.createOrder(order).subscribe(
+      data => {
+        console.log('Order creada con id: '+ data.id);
+        
+      })
   }
 
   deleteItemCart(productId:number){
