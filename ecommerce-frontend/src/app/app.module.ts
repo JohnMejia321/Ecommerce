@@ -18,6 +18,7 @@ import { CategoryListComponent } from './components/category/category-list/categ
 import { CategoryAddComponent } from './components/category/category-add/category-add.component';
 import { DetailProductComponent } from './components/cart/detail-product/detail-product.component';
 import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-order.component';
+import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 
 
 
@@ -32,6 +33,8 @@ const routes : Routes = [
   {path: 'admin/category/update/:id', component:CategoryAddComponent},
   {path: 'cart/detailproduct/:id', component:DetailProductComponent},
   {path: 'cart/sumary', component: SumaryOrderComponent},
+  {path: 'payment/success', component: PaymentSuccessComponent},
+
 
 
 ];
@@ -49,7 +52,8 @@ const routes : Routes = [
     CategoryListComponent,
     CategoryAddComponent,
     DetailProductComponent,
-    SumaryOrderComponent
+    SumaryOrderComponent,
+    PaymentSuccessComponent
   ],
   imports: [
     BrowserModule,
