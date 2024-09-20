@@ -29,10 +29,17 @@ public class BeanConfiguration {
         return new OrderService(iOrderRepository);
     }
 
-        @Bean
-        public UploadFile uploadFile(){
+    @Bean
+    public UploadFile uploadFile(){
             return new UploadFile();
         }
+
+    @Bean
+    public RegistrationService registrationService(IUserRepository iUserRepository){
+        return new RegistrationService(iUserRepository);
+    }
+
+
     }
 
 
