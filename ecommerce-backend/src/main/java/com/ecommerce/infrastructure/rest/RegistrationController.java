@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("api/v1/security")
+@RequestMapping("/api/v1/security")
 @Slf4j
 public class RegistrationController {
 

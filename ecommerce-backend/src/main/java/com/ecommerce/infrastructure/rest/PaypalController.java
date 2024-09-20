@@ -19,7 +19,7 @@ import com.ecommerce.domain.model.URLPaypalResponse;
 @AllArgsConstructor
 @CrossOrigin(origins = "http://localhost:4200")
 @Slf4j
-@RequestMapping("api/v1/payments")
+@RequestMapping("/api/v1/payments")
 public class PaypalController {
 
     private final PaypalService paypalService;
