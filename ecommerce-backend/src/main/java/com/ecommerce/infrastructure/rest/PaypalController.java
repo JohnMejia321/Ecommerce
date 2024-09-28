@@ -17,7 +17,7 @@ import com.ecommerce.domain.model.URLPaypalResponse;
 
 @RestController
 @AllArgsConstructor
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*")
 @Slf4j
 @RequestMapping("/api/v1/payments")
 public class PaypalController {
