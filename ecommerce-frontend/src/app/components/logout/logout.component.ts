@@ -17,7 +17,7 @@ constructor(private sessionStorage : SessionStorageService, private router:Route
     console.log('LogoutComponent: '+ this.sessionStorage.getItem('token'))
     this.sessionStorage.removeItem('token');
     console.log('LogoutComponent eliminado: '+ this.sessionStorage.getItem('token'))
-    this.router.navigate(['/']);
+    this.router.navigate(['user/login']);
   }
 
 }
