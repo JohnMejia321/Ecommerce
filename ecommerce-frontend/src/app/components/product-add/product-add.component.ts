@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product.service';
 import { ToastrService } from 'ngx-toastr';
 import { CategoryService } from '../../services/category.service';
+import { SessionStorageService } from '../../services/session-storage.service';
 
 @Component({
   selector: 'app-product-add',
@@ -12,7 +13,7 @@ import { CategoryService } from '../../services/category.service';
 })
 export class ProductAddComponent implements OnInit {
   
-  id : number = 3;
+  id : number = 0;
   code : string = '001';
   name : string = '';
   description : string = '';
@@ -32,8 +33,8 @@ export class ProductAddComponent implements OnInit {
     private router:Router, 
     private activatedRoute:ActivatedRoute, 
     private toastr: ToastrService, 
-    private categoryService:CategoryService
-   // private sessionStorage : SessionStorageService
+    private categoryService:CategoryService,
+    private sessionStorage : SessionStorageService
    ){
   }
 
@@ -42,7 +43,8 @@ export class ProductAddComponent implements OnInit {
   ngOnInit(): void {
     this.getProductById();
     this.getCategories();
-
+    this.user = this.sessionStorage.getItem('token').id;
+    this.userId = this.user.toString();
   }
 
 

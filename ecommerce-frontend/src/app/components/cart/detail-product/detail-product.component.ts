@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../../../services/cart.service';
 import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../../../services/product.service';
+import { HomeService } from '../../../services/home.service';
 
 @Component({
   selector: 'app-detail-product',
@@ -24,7 +25,7 @@ export class DetailProductComponent implements OnInit {
   }
 
   constructor(private activatedRoute: ActivatedRoute, private cartService:CartService, private toastr:ToastrService,
-     private productService: ProductService ){
+     private homeService: HomeService ){
 
   }
 
@@ -33,7 +34,7 @@ export class DetailProductComponent implements OnInit {
       p => {
         let id = p['id'];
         if(id){
-          this.productService.getProductById(id).subscribe(
+          this.homeService.getProductById(id).subscribe(
             data =>{
               this.id = data.id;
               this.name = data.name;

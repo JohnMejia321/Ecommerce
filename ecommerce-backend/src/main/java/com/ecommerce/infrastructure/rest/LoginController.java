@@ -1,5 +1,7 @@
 package com.ecommerce.infrastructure.rest;
 
+import com.ecommerce.application.UserService;
+import com.ecommerce.domain.model.User;
 import com.ecommerce.infrastructure.dto.UserDTO;
 import com.ecommerce.infrastructure.dto.JWTClient;
 
@@ -24,10 +26,14 @@ public class LoginController {
 
     private final JWTGenerator jwtGenerator;
 
+    private  final UserService userService;
 
-    public LoginController(AuthenticationManager authenticationManager, JWTGenerator jwtGenerator) {
+
+
+    public LoginController(AuthenticationManager authenticationManager, JWTGenerator jwtGenerator, UserService userService) {
         this.authenticationManager = authenticationManager;
         this.jwtGenerator = jwtGenerator;
+        this.userService = userService;
     }
 
     @PostMapping("/login")
@@ -39,8 +45,9 @@ public class LoginController {
         SecurityContextHolder.getContext().setAuthentication(authentication);
 
         log.info("Rol de user: {}", SecurityContextHolder.getContext().getAuthentication().getAuthorities().stream().findFirst().get().toString());
+        User user = userService.findByEmail(userDTO.getUsername());
         String token = jwtGenerator.getToken(userDTO.getUsername());
-        JWTClient jwtClient = new JWTClient(token);
+        JWTClient jwtClient = new JWTClient(user.getId(), token, user.getUserType().toString());
 
 
 

@@ -21,6 +21,7 @@ import { SumaryOrderComponent } from './components/orders/sumary-order/sumary-or
 import { PaymentSuccessComponent } from './components/payment-success/payment-success.component';
 import { RegistrationComponent } from './components/authetication/registration/registration.component';
 import { LoginComponent } from './components/authetication/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 
 
@@ -37,7 +38,9 @@ const routes : Routes = [
   {path: 'cart/sumary', component: SumaryOrderComponent},
   {path: 'payment/success', component: PaymentSuccessComponent},
   {path: 'user/register', component: RegistrationComponent},
-  {path: 'user/login', component: LoginComponent}
+  {path: 'user/login', component: LoginComponent},
+  {path: 'logout', component: LogoutComponent}
+
 
 
 
@@ -59,7 +62,8 @@ const routes : Routes = [
     SumaryOrderComponent,
     PaymentSuccessComponent,
     RegistrationComponent,
-    LoginComponent
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,
